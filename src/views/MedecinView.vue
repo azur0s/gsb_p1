@@ -12,17 +12,18 @@
     </v-toolbar>
     <RechercheMedecinComponent/>
 
-    <div v-show="FicheMedecin">
+    <div v-show="FicheMedecin" :key="maj">
         <FicheMedecinComponent/>
     </div> 
 
-    <div v-show="ListeRapport" >
+    <div v-show="ListeRapport" :key="maj" >
         <ListeRapportsComponent/>
     </div>
 
 </template>
 
 <script>
+
 
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import RechercheMedecinComponent from '@/components/RechercheMedecinComponent.vue';
@@ -31,6 +32,7 @@ import ListeRapportsComponent from '@/components/ListeRapportsComponent.vue'
 export default {
     data(){
         return{
+            maj: 0,
             ListeRapport:false,
             FicheMedecin:false,
             isNavMedVisible:false,

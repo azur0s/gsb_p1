@@ -5,7 +5,8 @@ export default createStore({
   state: {
     dataService: new DataService(),
     utilisateur: {},
-    medecin:{}
+    medecin: {},
+    rapport: {}
   },
   getters: {
   },
