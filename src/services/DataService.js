@@ -37,4 +37,27 @@ export default class DataService{
         var item = await fetch('http://localhost/restGSB/majMedecin',requestOptions);
         return item;
     }
+
+    async majRapport(props){
+        console.log(props)
+        var requestOptions= {
+            method:"PUT",
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify(props)
+        };
+        var item = await fetch('http://localhost/restGSB/majRapports',requestOptions);
+        return item;
+    }
+
+    async getLesRapportsADate(unID,uneDate) {
+        var params = new URLSearchParams({
+            date: uneDate,
+            idVisiteur : unID
+        });
+        var response = await fetch ('http://localhost/restGSB/rapports_a_date?'+params);
+        var items = await response.json();
+        return items;
+    }
 }
